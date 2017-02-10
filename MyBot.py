@@ -4,8 +4,13 @@ import random
 
 
 myID, game_map = hlt.get_init()
-hlt.send_init("MyPythonBot")
+hlt.send_init("rahulkalluri")
 
+def zero_still(square):
+	if square.strength == 0:
+		return Move(square, STILL)
+	else:
+		return Move(square, random.choice((NORTH, EAST, SOUTH, WEST, STILL)))
 while True:
     game_map.get_frame()
     moves = [Move(square, random.choice((NORTH, EAST, SOUTH, WEST, STILL))) for square in game_map if square.owner == myID]
